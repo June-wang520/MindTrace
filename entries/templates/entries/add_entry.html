@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>添加日记</title>
+</head>
+<body>
+<h1>添加日记</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>想做：<input type="text" name="想做"></p>
+    <p>所得：<input type="text" name="所得"></p>
+    <p>更好：<input type="text" name="更好"></p>
+    <p>生理：<input type="text" name="生理"></p>
+    <p>情绪：<input type="text" name="情绪"></p>
+    <p>图片：<input type="file" name="image"></p>
+    <p>音频：<input type="file" name="audio"></p>
+    <button type="submit">提交</button>
+</form>
+
+</body>
+</html>

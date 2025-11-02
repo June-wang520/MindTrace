@@ -1,0 +1,13 @@
+<h1>修改日记</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>想做：<input type="text" name="想做" value="{{ entry.想做 }}"></p>
+    <p>所得：<input type="text" name="所得" value="{{ entry.所得 }}"></p>
+    <p>更好：<input type="text" name="更好" value="{{ entry.更好 }}"></p>
+    <p>生理：<input type="text" name="生理" value="{{ entry.生理 }}"></p>
+    <p>情绪：<input type="text" name="情绪" value="{{ entry.情绪 }}"></p>
+    <p>图片：<input type="file" name="image"></p>
+    <p>音频：<input type="file" name="audio"></p>
+    <button type="submit">保存</button>
+</form>
+<p><a href="{% url 'entry_list' %}">返回首页</a></p>
