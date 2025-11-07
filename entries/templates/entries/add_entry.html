@@ -1,21 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>添加日记</title>
-</head>
-<body>
-<h1>添加日记</h1>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <p>想做：<input type="text" name="想做"></p>
-    <p>所得：<input type="text" name="所得"></p>
-    <p>更好：<input type="text" name="更好"></p>
-    <p>生理：<input type="text" name="生理"></p>
-    <p>情绪：<input type="text" name="情绪"></p>
-    <p>图片：<input type="file" name="image"></p>
-    <p>音频：<input type="file" name="audio"></p>
-    <button type="submit">提交</button>
-</form>
+{% extends 'base.html' %}
+{% block title %}添加新日记 | MindTrace{% endblock %}
 
-</body>
-</html>
+{% block content %}
+<div class="container mt-5" style="max-width: 800px;">
+    <div class="card shadow-lg p-4 border-0 rounded-4">
+        <h2 class="text-center text-primary mb-4">📖 添加新日记</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">所得</label>
+                <textarea name="所得" rows="2" class="form-control" placeholder="今天我学到了什么...">{{ form.所得.value }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">更好</label>
+                <textarea name="更好" rows="2" class="form-control" placeholder="我可以做得更好的地方是...">{{ form.更好.value }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">生理</label>
+                <input type="text" name="生理" class="form-control" placeholder="如：疲倦、放松、紧张..." value="{{ form.生理.value }}">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">情绪</label>
+                <input type="text" name="情绪" class="form-control" placeholder="如：平静、焦虑、开心..." value="{{ form.情绪.value }}">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">想做</label>
+                <input type="text" name="想做" class="form-control" placeholder="接下来我想去做..." value="{{ form.想做.value }}">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">图片</label>
+                <input type="file" name="image" class="form-control">
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-semibold">音频</label>
+                <input type="file" name="audio" class="form-control">
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary px-4">保存日记</button>
+                <a href="{% url 'entry_list' %}" class="btn btn-outline-secondary ms-2">返回列表</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
