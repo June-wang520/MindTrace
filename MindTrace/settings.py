@@ -80,17 +80,25 @@ WSGI_APPLICATION = 'MindTrace.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
+
+import dj_database_url
+
+# 本地默认使用 SQLite（开发用）
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'KKjl7ly48DOLaMUl',
-        'HOST': 'db.akgpcmttdbggyqeizqag.supabase.co',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-
 }
+
+# 部署环境会通过 DATABASE_URL 覆盖默认数据库
+if os.environ.get('DATABASE_URL'):
+    DATABASES['default'] = dj_database_url.config(
+        default=os.environ['DATABASE_URL'],
+        conn_max_age=600,
+        ssl_require=True,   # 如果你的 DB 需要 SSL（Render 的 internal 可以不需要，但留着也安全）
+    )
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
