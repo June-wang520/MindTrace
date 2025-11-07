@@ -26,9 +26,7 @@ SECRET_KEY = 'django-insecure-o#9n2kfm&$j0#w9_o(^2!uagtemc68)ja6-rxjmom8pid4ph)0
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['mindtrace-07f8.onrender.com', '127.0.0.1', 'localhost']
-
-
+ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
