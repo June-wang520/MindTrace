@@ -25,8 +25,13 @@ SECRET_KEY = 'django-insecure-o#9n2kfm&$j0#w9_o(^2!uagtemc68)ja6-rxjmom8pid4ph)0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+import os
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'mindtrace-imnt.onrender.com',
+    '127.0.0.1',
+    'localhost',
+]
 # Application definition
 
 INSTALLED_APPS = [
