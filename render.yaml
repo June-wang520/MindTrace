@@ -1,1 +1,14 @@
-python manage.py migrate && python manage.py loaddata data.json && gunicorn MindTrace.wsgi:application --bind 0.0.0.0:$PORT
+services:
+  - type: web
+    name: mindtrace
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn MindTrace.wsgi"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mindtrace-db
+          property: connectionString
+
+databases:
+  - name: mindtrace-db
