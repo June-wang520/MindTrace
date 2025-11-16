@@ -21,12 +21,12 @@
 
             <div class="mb-3">
                 <label class="form-label fw-semibold">生理</label>
-                <input type="text" name="生理" class="form-control" placeholder="如：疲倦、放松、紧张..." value="{{ form.生理.value }}">
+                <text type="text" name="生理" class="form-control" placeholder="如：疲倦、放松、紧张..." value="{{ form.生理.value }}">
             </div>
 
             <div class="mb-3">
                 <label class="form-label fw-semibold">情绪</label>
-                <input type="text" name="情绪" class="form-control" placeholder="如：平静、焦虑、开心..." value="{{ form.情绪.value }}">
+                <textarea name="情绪" rows="2" class="form-control">{{ form.情绪.value }}</textarea>
             </div>
 
             <div class="mb-3">
