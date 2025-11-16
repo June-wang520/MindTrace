@@ -18,12 +18,10 @@
                 <label class="form-label fw-semibold">更好</label>
                 <textarea name="更好" rows="2" class="form-control" placeholder="我可以做得更好的地方是...">{{ form.更好.value }}</textarea>
             </div>
-
-            <div class="mb-3">
-                <label class="form-label fw-semibold">生理</label>
-                <text type="text" name="生理" class="form-control" placeholder="如：疲倦、放松、紧张..." value="{{ form.生理.value }}">
-            </div>
-
+ <div class="mb-3">
+            <label class="form-label fw-semibold">生理</label>
+                      <textarea name="生理" rows="2" class="form-control" >{{ form.生理.value }}</textarea>
+ </div>
             <div class="mb-3">
                 <label class="form-label fw-semibold">情绪</label>
                 <textarea name="情绪" rows="2" class="form-control">{{ form.情绪.value }}</textarea>
