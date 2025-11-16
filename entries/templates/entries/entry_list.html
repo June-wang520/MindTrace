@@ -60,7 +60,20 @@
     {% for entry in entries %}
         <div class="card p-3 shadow-sm">
             <div class="d-flex justify-content-between align-items-center mb-2">
-                <h5 class="mb-0 text-secondary">{{ entry.date }}</h5>
+                <h5 class="mb-0 text-secondary">
+    {{ entry.date|date:"Y-m-d" }}
+    {% with wd=entry.date|date:"w" %}
+        {% if wd == "0" %} 星期日
+        {% elif wd == "1" %} 星期一
+        {% elif wd == "2" %} 星期二
+        {% elif wd == "3" %} 星期三
+        {% elif wd == "4" %} 星期四
+        {% elif wd == "5" %} 星期五
+        {% elif wd == "6" %} 星期六
+        {% endif %}
+    {% endwith %}
+</h5>
+
                 <div>
                     <a href="{% url 'edit_entry' entry.id %}" class="btn btn-sm btn-outline-primary me-2">修改</a>
                     <a href="{% url 'delete_entry' entry.id %}" class="btn btn-sm btn-outline-danger">删除</a>
